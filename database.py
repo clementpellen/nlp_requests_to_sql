@@ -23,6 +23,11 @@ def execute_sql_query(temp_db, sql_query):
         result = connection.execute(text(sql_query)).fetchall()
         return result
 
+def ask_request():
+    return input("Quelle est la requête que vous souhaitez effectuer ?\n")
+
 
 if __name__ == "__main__":
-    print(get_column_names())
+    temp_db = create_db()
+    natural_query = ask_request()
+    print("\nRésultat de la requête :\n", execute_sql_query(temp_db, natural_query))
