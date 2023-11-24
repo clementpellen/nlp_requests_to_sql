@@ -42,3 +42,10 @@ def main():
 if __name__ == "__main__":
     main()
 
+# Requêtes à effectuer :
+
+#   Quelle est la moyenne des prix des voitures dans la base de données ?
+#   SELECT AVG(price) FROM data
+
+#   Quelle est la médiane des prix parmi les 35 derniers modèles de voiture sortis ?
+#   WITH RankedCars AS (SELECT price, ROW_NUMBER() OVER (ORDER BY year DESC, model DESC) as rn FROM cars LIMIT 35) SELECT price FROM RankedCars WHERE rn = (35 + 1) / 2;
